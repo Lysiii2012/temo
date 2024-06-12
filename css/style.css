@@ -141,6 +141,9 @@ html{
     text-wrap: nowrap;
     display: block;
 }
+html{
+    scroll-behavior: smooth;
+}
 .header-nav nav ul{
     display: flex;
     align-items: center;
@@ -197,7 +200,7 @@ header{
 }
 .polit-box{
     background: var(--black);
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
     max-width: 477px;
@@ -206,6 +209,7 @@ header{
     align-items: center;
     width: 100%;
     gap:20px;
+    z-index: 1000;
     box-sizing: border-box;
 }
 .container-header{

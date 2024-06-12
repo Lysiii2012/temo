@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (container) {
         const imgElement = container.querySelector('img');
         if (imgElement) {
-            const duplicateCount = 6;
+            const duplicateCount = 9;
             for (let i = 1; i < duplicateCount; i++) {
                 const clone = imgElement.cloneNode(true);
                 container.appendChild(clone);
@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Mouse circle effect on project items
+    if (window.innerWidth >= 1200) {
     const circle = document.querySelector('.mouse-circl');
     const projectItem = document.querySelectorAll('.progict-item');
     if (circle && projectItem.length > 0) {
@@ -79,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-
+    }
     // Pop-up form functionality
     const popUpBtn = document.querySelectorAll('.call-back');
     const popForm = document.querySelector('.pop-up-form');
@@ -220,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Smooth scroll for anchor links
-    const links = document.querySelectorAll('a[href^="#"]');
+    const links = document.querySelectorAll('a[href^="#id"]');
     if (links.length > 0) {
         links.forEach(link => {
             link.addEventListener('click', (e) => {
@@ -264,6 +265,15 @@ document.addEventListener('DOMContentLoaded', () => {
         moreProjectLink.addEventListener('click', (e) => {
             e.preventDefault();
             toggleMoreProjects();
+        });
+    }
+    const toTopButton = document.getElementById('toUp');
+    if (toTopButton) {
+        toTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' 
+            });
         });
     }
 });
