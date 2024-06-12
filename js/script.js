@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         behavior: 'smooth',
                         block: 'start',  
                         inline: 'nearest',  
-                        top: 0 
+                        top: -100 
                     });
                 }
             });
