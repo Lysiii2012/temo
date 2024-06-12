@@ -153,19 +153,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile navigation toggle
     const burgerNav = document.querySelector('.burger-nav');
     const mobNav = document.querySelector('.header-nav');
+    const mobNavLink = mobNav.querySelectorAll('a')
+    
+    function toggleNav() {
+        burgerNav.classList.toggle('active');
+        mobNav.classList.toggle('active');
+    }
+
     if (burgerNav && mobNav) {
         burgerNav.addEventListener('click', (e) => {
             e.preventDefault();
-            burgerNav.classList.toggle('active');
-            mobNav.classList.toggle('active');
+            toggleNav();
         });
-    
-        document.addEventListener('click', (e) => {
-            if (!mobNav.contains(e.target) && !burgerNav.contains(e.target)) {
-                burgerNav.classList.remove('active');
+        mobNavLink.forEach(item => {
+            item.addEventListener('click', (e) => {
+            
+            if (window.innerWidth <= 860 ) {
                 mobNav.classList.remove('active');
+                burgerNav.classList.remove('active');
             }
-        });
+        }); 
+        })
+       
     }
 
     // Toggle service items
@@ -231,14 +240,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 if (targetElement) {
                     targetElement.scrollIntoView({
-                        behavior: 'smooth'
+                        behavior: 'smooth',
+                        block: 'start',  
+                        inline: 'nearest',  
+                        top: 0 
                     });
                 }
             });
         });
     }
-
-    // Toggle more projects
+     
     const moreProjectLink = document.querySelector('.more-project');
     const projectItems = document.querySelectorAll('.progict-item');
     if (moreProjectLink && projectItems.length > 0) {
